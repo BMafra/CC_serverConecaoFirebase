@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/BMafra/CC_serverConecaoFirebase/issues"
   },
-  "homepage": "https://github.com/BMafra/CC_serverConecaoFirebase#readme"
+  "homepage": "https://github.com/BMafra/CC_serverConecaoFirebase#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "firebase-admin": "^11.0.0",
+    "jest": "^28.1.1"
+  }
 }
