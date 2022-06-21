@@ -1,5 +1,5 @@
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
-const { getFirestore, Timestamp, FieldValue } = require('firebase-admin/firestore');
+const { getFirestore, Timestamp, FieldValue} = require('firebase-admin/firestore');
 //conecta bd
 const firebaseConfig = {
     apiKey: "AIzaSyDJd11ecSAz79RrDuYsvWraCmDfj_p6hHQ",
@@ -10,10 +10,8 @@ const firebaseConfig = {
     appId: "1:682371083729:web:ac6f936b01e28e758244f0",
     measurementId: "G-7G60B2PFD9"
   };
-initializeApp(firebaseConfig);
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 const db = getFirestore();
 
