@@ -22,4 +22,4 @@ async function remove(){
     console.log(dados);
 }
 
-remove();
+buscarDadosId();
