@@ -6,7 +6,9 @@ const {
     setDoc,
     addDoc,
     query,
-    where }
+    where,
+    getDoc,
+    deleteDoc  }
     = require('firebase/firestore/lite');
 //conecta bd
 
@@ -61,6 +63,28 @@ async function get(nomeTabela) {
     return lista;
 }
 
+async function getById(nomeTabela, id) {
+    const docRef = doc(db, nomeTabela, id);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        return docSnap.data();
+    } else {
+
+        return new Error("not found")
+    }
+}
+
+async function remove(nomeTabela, id){
+    const dado = await deleteDoc(doc(db, nomeTabela, id))
+    return{
+        massage: `${id} deleted`
+    }
+}
+
 module.exports = {
-    save
+    save,
+    get,
+    getById,
+    remove
 }
