@@ -1,5 +1,13 @@
 const { initializeApp, applicationDefault, cert } = require('firebase/app');
-const { getFirestore, collection, getDocs, setDoc, addDoc } = require('firebase/firestore/lite');
+const {
+    getFirestore,
+    collection,
+    getDocs,
+    setDoc,
+    addDoc,
+    query,
+    where }
+    = require('firebase/firestore/lite');
 //conecta bd
 
 const firebaseConfig = {
@@ -32,6 +40,25 @@ async function save(nomeTabela, id, dado) {
         }
         return savedData;
     }
+}
+
+async function get(nomeTabela) {
+    const tableRef = collection(db, nomeTabela);
+
+    const q = query(tableRef,);
+
+    const lista = [];
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        const data = {
+            ...doc.data(),
+            id: doc.id
+        }
+        lista.push(data);
+        console.log(doc.id, " => ", doc.data());
+    });
+    return lista;
 }
 
 module.exports = {
